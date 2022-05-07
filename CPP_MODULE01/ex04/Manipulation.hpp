@@ -15,6 +15,7 @@ private:
 	std::string replacedStr;
 	std::string fileCont;
 public:
+	Manipulation();
 	Manipulation(std::string fileName, std::string strToReplace, std::string replacedStr);
 	~Manipulation();
 	void replace();
