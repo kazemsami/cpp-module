@@ -95,21 +95,21 @@ std::ostream& operator<<(std::ostream& os, const Convert& convert)
 	if (isChar)
 	{
 		c = str[0];
-		integer = c;
-		float_num = c;
-		double_num = c;
+		integer = (int)c;
+		float_num = (float)c;
+		double_num = (double)c;
 	}
 	else if (isDouble)
 	{
 		char *pEnd;
 		double_num = strtod(str.c_str(), &pEnd);
-		integer = double_num;
+		integer = (int)double_num;
 		if (integer < -2147483648 || integer > 2147483647)
 		{
 			intIsImpossible = true;
 		}
-		float_num = double_num;
-		c = double_num;
+		float_num = (float)double_num;
+		c = (char)double_num;
 		if (integer < 0 || integer > 255)
 		{
 			charIsImpossible = true;
@@ -119,13 +119,13 @@ std::ostream& operator<<(std::ostream& os, const Convert& convert)
 	{
 		char *pEnd;
 		float_num = strtof(str.c_str(), &pEnd);
-		integer = float_num;
+		integer = (int)float_num;
 		if (integer < -2147483648 || integer > 2147483647)
 		{
 			intIsImpossible = true;
 		}
-		double_num = float_num;
-		c = float_num;
+		double_num = (double)float_num;
+		c = (char)float_num;
 		if (integer < 0 || integer > 255)
 		{
 			charIsImpossible = true;
@@ -141,9 +141,9 @@ std::ostream& operator<<(std::ostream& os, const Convert& convert)
 			doubleIsImpossible = true;
 			intIsImpossible = true;
 		}
-		float_num = integer;
-		double_num = integer;
-		c = integer;
+		float_num = (float)integer;
+		double_num = (double)integer;
+		c = (char)integer;
 		if (integer < 0 || integer > 255)
 		{
 			charIsImpossible = true;
