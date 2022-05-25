@@ -10,7 +10,7 @@ int	main()
 	}
 	catch (std::exception &exp)
 	{
-		std::cout << exp.what() << std::endl;
+		std::cerr << exp.what() << std::endl;
 	}
 	std::cout << "############################################" << std::endl;
 	try {
@@ -20,7 +20,7 @@ int	main()
 	}
 	catch (std::exception &exp)
 	{
-		std::cout << exp.what() << std::endl;
+		std::cerr << exp.what() << std::endl;
 	}
 	std::cout << "############################################" << std::endl;
 	try {
@@ -34,7 +34,7 @@ int	main()
 	}
 	catch (std::exception &exp)
 	{
-		std::cout << exp.what() << std::endl;
+		std::cerr << exp.what() << std::endl;
 	}
 	std::cout << "############################################" << std::endl;
 	try {
@@ -49,6 +49,6 @@ int	main()
 	}
 	catch (std::exception &exp)
 	{
-		std::cout << exp.what() << std::endl;
+		std::cerr << exp.what() << std::endl;
 	}
 }

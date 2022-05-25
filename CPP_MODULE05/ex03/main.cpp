@@ -20,7 +20,7 @@ int main()
 		{
 			if (rrf != NULL)
 				delete (rrf);
-			std::cout << ex.what() << std::endl;
+			std::cerr << ex.what() << std::endl;
 		}
 	}
 	std::cout << "#######################################################\n#######################################################" << std::endl;
@@ -37,7 +37,7 @@ int main()
 		{
 			if (rrf != NULL)
 				delete (rrf);
-			std::cout << ex.what() << std::endl;
+			std::cerr << ex.what() << std::endl;
 		}
 	}
 	return (0);
