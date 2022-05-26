@@ -38,7 +38,7 @@ int	Span::shortestSpan()
 {
 	if (this->vec.size() <= 1)
 		throw NoSpanFound("Vector is empty or has only one element can't find span");
-	int	shortest = INT_MAX;
+	int	shortest = 2147483647;
 	for (std::vector<int>::iterator it = this->vec.begin(); it != vec.end(); it++)
 	{
 		for (std::vector<int>::iterator it2 = this->vec.begin(); it2 != vec.end(); it2++)
