@@ -1,9 +1,9 @@
- # 42's CPP_MODULE project
+ # 42's CPP Modules project
  
  
-CPP_MODULE are a bunch of exercises which teaches you the fundamentals of C++ and object-oriented-programming.
+CPP Modules are a bunch of exercises which teaches you the fundamentals of C++ and object-oriented-programming.
  
- ### This project's tasks include
+ ### Project tasks include
  
  * Applying concepts of object-oriented-programming such as Polymorphism, Inheritance, etc...
  * Using C++ algorithms library.
