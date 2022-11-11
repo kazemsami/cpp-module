@@ -17,18 +17,39 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(const FragTrap &trap) : ClapTrap()
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "FragTrap Copy constructor called" << std::endl;
 	*this = trap;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& trap)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "FragTrap Copy assignment operator called" << std::endl;
 	this->hp = trap.hp;
 	this->name = trap.name;
 	this->ep = trap.ep;
 	this->attdmg = trap.attdmg;
 	return *this;
+}
+
+void FragTrap::attack(const std::string& target)
+{
+	if (this->hp > 0 && this->ep > 0)
+	{
+		std::cout << "FragTrap " + this->name + " attacks " + target + ", causing " << this->attdmg <<  " points of damage!" << std::endl;
+		this->ep--;
+	}
+	else if (this->hp <= 0 && this->ep == 0)
+	{
+		std::cout << "FragTrap Not enough energy points and hit points to attack" << std::endl;
+	}
+	else if (this->hp <= 0)
+	{
+		std::cout << "FragTrap You are dead can't attack" << std::endl;
+	}
+	else
+	{
+		std::cout << "FragTrap Not enough energy points to attack" << std::endl;
+	}
 }
 
 void FragTrap::guardGate()

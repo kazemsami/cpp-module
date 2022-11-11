@@ -1,9 +1,11 @@
 #include "Convert.hpp"
 
-Convert::Convert(std::string str) : str(str), integer(0)
+Convert::Convert() : str("")
 {
-	char *pEnd;
-	this->integer = strtol(this->str.c_str(), &pEnd, 10);
+}
+
+Convert::Convert(std::string str) : str(str)
+{
 }
 
 Convert::~Convert()
@@ -14,7 +16,7 @@ Convert::Convert(const Convert& convert)
 {
 	if (this != &convert)
 	{
-		this->integer = convert.integer;
+		this->str = convert.str;
 	}
 }
 
@@ -22,7 +24,7 @@ Convert& Convert::operator=(const Convert& convert)
 {
 	if (this != &convert)
 	{
-		this->integer = convert.integer;
+		this->str = convert.str;
 	}
 	return (*this);
 }
@@ -95,21 +97,21 @@ std::ostream& operator<<(std::ostream& os, const Convert& convert)
 	if (isChar)
 	{
 		c = str[0];
-		integer = (int)c;
-		float_num = (float)c;
-		double_num = (double)c;
+		integer = static_cast<int>(c);
+		float_num = static_cast<float>(c);
+		double_num = static_cast<double>(c);
 	}
 	else if (isDouble)
 	{
 		char *pEnd;
 		double_num = strtod(str.c_str(), &pEnd);
-		integer = (int)double_num;
+		integer = static_cast<long>(double_num);
 		if (integer < -2147483648 || integer > 2147483647)
 		{
 			intIsImpossible = true;
 		}
-		float_num = (float)double_num;
-		c = (char)double_num;
+		float_num = static_cast<float>(double_num);
+		c = static_cast<char>(double_num);
 		if (integer < 0 || integer > 255)
 		{
 			charIsImpossible = true;
@@ -119,13 +121,13 @@ std::ostream& operator<<(std::ostream& os, const Convert& convert)
 	{
 		char *pEnd;
 		float_num = strtof(str.c_str(), &pEnd);
-		integer = (int)float_num;
+		integer = static_cast<long>(float_num);
 		if (integer < -2147483648 || integer > 2147483647)
 		{
 			intIsImpossible = true;
 		}
-		double_num = (double)float_num;
-		c = (char)float_num;
+		double_num = static_cast<double>(float_num);
+		c = static_cast<char>(float_num);
 		if (integer < 0 || integer > 255)
 		{
 			charIsImpossible = true;
@@ -141,9 +143,9 @@ std::ostream& operator<<(std::ostream& os, const Convert& convert)
 			doubleIsImpossible = true;
 			intIsImpossible = true;
 		}
-		float_num = (float)integer;
-		double_num = (double)integer;
-		c = (char)integer;
+		float_num = static_cast<float>(integer);
+		double_num = static_cast<double>(integer);
+		c = static_cast<char>(integer);
 		if (integer < 0 || integer > 255)
 		{
 			charIsImpossible = true;

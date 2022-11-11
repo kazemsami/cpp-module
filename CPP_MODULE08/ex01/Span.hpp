@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <cmath>
+#include <algorithm>
 
 class Span
 {
@@ -11,6 +12,7 @@ private:
 	std::vector<int> vec;
 	unsigned int max_sz;
 public:
+	Span();
 	Span(unsigned int max_sz);
 	~Span();
 	Span(const Span &span);

@@ -14,10 +14,10 @@ protected:
 	ClapTrap();
 public:
 	ClapTrap(std::string name);
-	~ClapTrap();
+	virtual ~ClapTrap();
 	ClapTrap(const ClapTrap &trap);
 	ClapTrap& operator=(const ClapTrap &trap);
-	void attack(const std::string &target);
+	virtual void attack(const std::string &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };

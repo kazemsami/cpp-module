@@ -17,13 +17,13 @@ ScavTrap::~ScavTrap()
 
 ScavTrap::ScavTrap(const ScavTrap &trap) : ClapTrap()
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ScavTrap Copy constructor called" << std::endl;
 	*this = trap;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& trap)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
 	this->hp = trap.hp;
 	this->name = trap.name;
 	this->ep = trap.ep;
@@ -40,15 +40,15 @@ void ScavTrap::attack(const std::string& target)
 	}
 	else if (this->hp <= 0 && this->ep == 0)
 	{
-		std::cout << "Not enough energy points and hit points to attack" << std::endl;
+		std::cout << "ScavTrap Not enough energy points and hit points to attack" << std::endl;
 	}
 	else if (this->hp <= 0)
 	{
-		std::cout << "You are dead can't attack" << std::endl;
+		std::cout << "ScavTrap You are dead can't attack" << std::endl;
 	}
 	else
 	{
-		std::cout << "Not enough energy points to attack" << std::endl;
+		std::cout << "ScavTrap Not enough energy points to attack" << std::endl;
 	}
 }
 

@@ -13,8 +13,8 @@ class Convert
 {
 private:
 	std::string str;
-	long integer;
 public:
+	Convert();
 	Convert(std::string str);
 	~Convert();
 	Convert(const Convert& bureaucrat);

@@ -10,7 +10,7 @@ template <class T>
 class MutantStack : public std::stack<T>
 {
 public:
-	typedef typename std::deque<T>::iterator iterator;
+	typedef typename std::stack<T>::container_type::iterator iterator;
 	MutantStack() {};
 	~MutantStack() {};
 	iterator begin()

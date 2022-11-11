@@ -11,14 +11,10 @@ private:
 	T *arr;
 	unsigned int sz;
 public:
-	Array() : arr(new T[0]), sz(0) {};
+	Array() : arr(new T[0]), sz(0) {}
 	Array(unsigned int size) : arr(new T[size]), sz(size)
 	{
-		for (unsigned int i = 0; i < size; ++i)
-		{
-			arr[i] = 0;
-		}
-	};
+	}
 	Array(const Array& array)
 	{
 		if (this != &array)
@@ -29,9 +25,15 @@ public:
 			this->sz = array.sz;
 		}
 	}
-	T& operator[] (unsigned int index)
+	T& operator[] (int index)
 	{
-		if (index >= this->sz)
+		if (index >= (int)this->sz || index < 0)
+			throw std::out_of_range("Trying to access wrong index");
+		return (this->arr[index]);
+	}
+	const T& operator[] (int index) const
+	{
+		if (index >= (int)this->sz || index < 0)
 			throw std::out_of_range("Trying to access wrong index");
 		return (this->arr[index]);
 	}

@@ -56,33 +56,17 @@ int Bureaucrat::getGrade() const
 void Bureaucrat::incrementGrade()
 {
 	std::cout << "incrementGrade member function called" << std::endl;
-	try {
-		if (this->grade <= 1)
-		{
-			throw GradeTooHighException("The grade is too high to increment");
-		}
-		this->grade--;
-	}
-	catch (GradeTooHighException& high)
-	{
-		std::cout << high.what() << std::endl;
-	}
+	if (this->grade <= 1)
+		throw GradeTooHighException("The grade is too high to increment");
+	this->grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
 	std::cout << "decrementGrade member function called" << std::endl;
-	try {
-		if (this->grade >= 150)
-		{
-			throw GradeTooLowException("The grade is too low to decrement");
-		}
-		this->grade++;
-	}
-	catch (GradeTooLowException& low)
-	{
-		std::cout << low.what() << std::endl;
-	}
+	if (this->grade >= 150)
+		throw GradeTooLowException("The grade is too low to decrement");
+	this->grade++;
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& msg) : _msg(msg)

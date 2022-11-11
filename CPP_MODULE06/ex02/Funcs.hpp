@@ -7,6 +7,8 @@
 #include "C.hpp"
 #include <ctime>
 #include <iostream>
+#include <cstdlib>
+#include <stdexcept>
 
 Base * generate(void);
 void identify(Base* p);

@@ -2,7 +2,6 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Shrubbery", 145, 137), target(target)
 {
-
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

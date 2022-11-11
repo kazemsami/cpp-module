@@ -1,5 +1,9 @@
 #include "Span.hpp"
 
+Span::Span() : max_sz(0)
+{
+}
+
 Span::Span(unsigned int max_sz) : max_sz(max_sz)
 {
 }
@@ -38,15 +42,11 @@ int	Span::shortestSpan()
 {
 	if (this->vec.size() <= 1)
 		throw NoSpanFound("Vector is empty or has only one element can't find span");
-	int	shortest = 2147483647;
-	for (std::vector<int>::iterator it = this->vec.begin(); it != vec.end(); it++)
-	{
-		for (std::vector<int>::iterator it2 = this->vec.begin(); it2 != vec.end(); it2++)
-		{
-			if (it2 != it && std::abs(*it - *it2) < shortest)
-				shortest = std::abs(*it - *it2);
-		}
-	}
+	std::vector<int> tmp(this->vec);
+	std::sort(tmp.begin(), tmp.end());
+	int shortest = tmp[1] - tmp[0];
+	for (std::vector<int>::iterator it = tmp.begin() + 2; it != tmp.end(); ++it)
+		shortest = std::min(shortest, *it - *(it - 1));
 	return (shortest);
 }
 
@@ -54,16 +54,9 @@ int	Span::longestSpan()
 {
 	if (this->vec.size() <= 1)
 		throw NoSpanFound("Vector is empty or has only one element can't find span");
-	int	longest = 0;
-	for (std::vector<int>::iterator it = this->vec.begin(); it != vec.end(); it++)
-	{
-		for (std::vector<int>::iterator it2 = this->vec.begin(); it2 != vec.end(); it2++)
-		{
-			if (it2 != it && std::abs(*it - *it2) > longest)
-				longest = std::abs(*it - *it2);
-		}
-	}
-	return (longest);
+	std::vector<int> tmp(this->vec);
+	std::sort(tmp.begin(), tmp.end());
+	return (tmp[tmp.size() - 1] - tmp[0]);
 }
 
 void Span::addMultiple(std::vector<int>::iterator begin, std::vector<int>::iterator end)

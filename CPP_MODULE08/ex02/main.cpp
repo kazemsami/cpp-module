@@ -26,6 +26,9 @@ int	main()
 			++it;
 		}
 		std::stack<int> s(mstack);
+		std::cout << s.top() << std::endl;
+		s.pop();
+		std::cout << s.top() << std::endl;
 	}
 	std::cout << "#######################################################" << std::endl;
 	{
@@ -49,6 +52,10 @@ int	main()
 			std::cout << *it << std::endl;
 			++it;
 		}
+		std::list<int> s(mstack);
+		std::cout << s.back() << std::endl;
+		s.pop_back();
+		std::cout << s.back() << std::endl;
 	}
 	return 0;
 }

@@ -3,17 +3,9 @@
 
 #include <stdint.h>
 
-class Data
+struct Data
 {
-private:
 	int	data;
-public:
-	Data();
-	~Data();
-	Data(const Data& data);
-	Data& operator=(const Data& data);
-	int getData() const;
-	void setData(int data);
 };
 
 uintptr_t serialize(Data* ptr);

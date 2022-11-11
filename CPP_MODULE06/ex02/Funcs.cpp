@@ -1,22 +1,8 @@
 #include "Funcs.hpp"
 
-static unsigned long int next = 1;
-
-int rand(void)
-{
-    next = next * 1103515245 + 12345;
-    return (unsigned int)(next/65536) % 32768;
-}
-
-void srand(unsigned int seed)
-{
-    next = seed;
-}
-
-
 Base * generate(void)
 {
-	srand(time(NULL));
+	srand(rand() ^ time(NULL));
 	int	rand_num = rand() % 100;
 	if (rand_num < 30)
 	{
@@ -53,7 +39,7 @@ void identify(Base& p)
 		(void)a;
 		std::cout << "A" << std::endl;
 	}
-	catch(std::bad_cast e)
+	catch(std::exception &e)
 	{
 	}
 	try
@@ -62,7 +48,7 @@ void identify(Base& p)
 		(void)b;
 		std::cout << "B" << std::endl;
 	}
-	catch(std::bad_cast e)
+	catch(std::exception &e)
 	{
 	}
 	try
@@ -71,7 +57,7 @@ void identify(Base& p)
 		(void)c;
 		std::cout << "C" << std::endl;
 	}
-	catch(std::bad_cast e)
+	catch(std::exception &e)
 	{
 	}
 }
